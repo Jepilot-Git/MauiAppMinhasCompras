@@ -42,4 +42,5 @@ namespace MauiAppMinhasCompras.Helpers
             return _conn.QueryAsync<Produto>(sql);
         }
     }
+   
 }
