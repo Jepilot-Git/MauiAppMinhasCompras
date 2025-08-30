@@ -25,10 +25,26 @@ namespace MauiAppMinhasCompras.Helpers
                 );
                     }
 
-        public Task<int> Delete(int id) 
+       public Task<int> Delete(Produto produto) 
         {
-            return _conn.Table<Produto>().DeleteAsync(i => i.Id == id);
+           // return _conn.Table<Produto>().DeleteAsync(i => i.Id == id);
+           // return _conn.Table<Produto>().DeleteAsync(Produto.id);
+           // return Delete(ItemSelecionado);
+          return _conn.DeleteAsync(produto);
+
         }
+
+        public Task<int> DeleteById(int id)
+        {
+            return _conn.Table<Produto>().DeleteAsync(p => p.Id == id);
+        }
+
+        public Task<int> DeleteAsync(Produto itemSelecionado) 
+        {
+            return Delete(itemSelecionado);
+
+        }
+
 
         public Task<List<Produto>> GetAll() 
         {
@@ -41,6 +57,8 @@ namespace MauiAppMinhasCompras.Helpers
 
             return _conn.QueryAsync<Produto>(sql);
         }
+
+        
     }
    
 }

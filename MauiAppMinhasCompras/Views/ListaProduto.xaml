@@ -5,7 +5,7 @@
              Title="Minhas Compras">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Somar" Clicked="ToolbarItem_Clicked_1" />
+        <ToolbarItem Text="Somar" Clicked="ToolbarItem_Somar" />
         <ToolbarItem Text="Adicionar" Clicked="ToolbarItem_Clicked"/>
 
     </ContentPage.ToolbarItems>
@@ -24,14 +24,15 @@
                     <Label Grid.Column="3" Text="Preço"/>
                     <Label Grid.Column="4" Text="Qnt"/>
                     <Label Grid.Column="5" Text="Total"/>         
-            </Grid>           
-            
+            </Grid>         
                </ListView.Header>
+            
+            
         <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <ViewCell.ContextActions>
-                            <MenuItem Text="Remover" Clicked="MenuItem_Clicked"/>
+                            <MenuItem Text="Remover_ESTE" Clicked="MenuItem_Remover" CommandParameter="{Binding .}"/>
                         </ViewCell.ContextActions>
 
                         <Grid ColumnDefinitions="*, *, *, *, *, *">
